@@ -39,23 +39,36 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_medium"
                 android:layout_weight="1"
-                android:background="@drawable/input_box"
+                android:background="@color/colorPrimaryDark"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="left">
+
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/font_20sp"
-                    android:textColor="@color/darkTextColor"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Stations in record"
+                    android:alpha="0.65"
+                    android:textStyle="bold"/>
+
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:id="@+id/stationCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorWhite"
                     android:text="150"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:textStyle="bold"/>
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/font_18sp"
-                    android:textColor="@color/lightTextColor"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
                     android:text="Stations"
-                    android:layout_marginTop="@dimen/margin_xsmall"
+                    android:layout_gravity="center_horizontal"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -68,6 +81,7 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:id="@+id/totalCases"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/font_20sp"
@@ -87,6 +101,7 @@
        <androidx.recyclerview.widget.RecyclerView
            android:layout_width="match_parent"
            android:layout_height="match_parent"
+           android:layout_marginTop="@dimen/margin_medium"
            android:id="@+id/record_recycler"/>
     </LinearLayout>
 </LinearLayout>
