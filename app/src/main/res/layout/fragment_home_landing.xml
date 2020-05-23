@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_medium"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"
+                android:background="#031A91"
                 android:orientation="vertical"
                 android:gravity="left">
 
