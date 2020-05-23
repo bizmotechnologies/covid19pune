@@ -3,53 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#55000000"
+    android:background="#ffffff"
     android:elevation="2dp"
+
     tools:context=".source.postlogin.features.locate_patient.fragments.ContactPersonFragment">
 
-    <LinearLayout
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:id="@+id/actionbar"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_arrow_back"
-            android:padding="@dimen/margin_medium"
-            android:id="@+id/close_dialog"
-            android:tint="@color/colorBlack"
-            android:layout_height="wrap_content"/>
-        <com.policeapp.framework.Widgets.AppRegularTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/font_20sp"
-            android:textStyle="bold"
-            android:text="Contacted Person"/>
 
-    </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
+    <com.policeapp.framework.Widgets.AppRegularTextView
+        android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/actionbar"
-        android:layout_above="@id/divider"
-        android:id="@+id/recycler"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:id="@+id/divider"
-        android:background="@color/lightTextColor"
-        android:layout_above="@id/input_view"/>
+        android:text="Enter details of person contacted by patient"
+        android:textSize="@dimen/font_18sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:padding="@dimen/margin_small"
+        android:background="@color/themetextDarkColor"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:background="@color/lightBackgroundColor"
+        android:background="@color/colorWhite"
         android:id="@+id/input_view"
+        android:layout_below="@id/top"
         android:padding="@dimen/margin_medium">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -61,6 +39,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName|textCapWords"
                 android:singleLine="true"
+                android:textColorHint="@color/themeTextDark"
                 android:nextFocusForward="@+id/person_contact"
                 android:textSize="@dimen/font_14sp"
                 android:id="@+id/person_name"/>
@@ -76,6 +55,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="number"
                 android:digits="0123456789"
+                android:textColorHint="@color/themeTextDark"
                 android:maxLength="10"
                 android:nextFocusForward="@+id/person_address"
                 android:singleLine="true"
@@ -89,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Address"
                 android:textSize="@dimen/font_14sp"
+                android:textColorHint="@color/themeTextDark"
                 android:inputType="textPostalAddress|textCapSentences"
                 android:imeOptions="actionDone"
                 android:id="@+id/person_address"/>

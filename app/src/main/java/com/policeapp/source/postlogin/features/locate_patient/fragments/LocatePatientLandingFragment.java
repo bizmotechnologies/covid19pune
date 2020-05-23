@@ -168,7 +168,10 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     }
 
     private void addContactPerson(){
-        mMasterFragment.loadFragment(new ContactPersonFragment(adapter.getList(),this),true);
+
+        ContactPersonFragment fragment = new  ContactPersonFragment(adapter.getList(),this);
+        fragment.show(getFragmentManager(),"");
+//        mMasterFragment.loadFragment(new ContactPersonFragment(adapter.getList(),this),true);
     }
 
     private void actionSavePerson(){

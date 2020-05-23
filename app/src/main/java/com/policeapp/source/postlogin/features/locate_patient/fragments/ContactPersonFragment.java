@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.policeapp.R;
 import com.policeapp.framework.Utils.Utils;
 import com.policeapp.framework.Widgets.AppBottomSheetDialogFragment;
@@ -32,12 +33,11 @@ import java.util.Objects;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactPersonFragment extends AppBottomSheetDialogFragment implements ContactPersonListener, View.OnClickListener{
+public class ContactPersonFragment extends BottomSheetDialogFragment implements ContactPersonListener, View.OnClickListener{
     private ArrayList<ContactedPersonBean> list;
     private RecyclerView recyclerView;
     private EditText mAddress, mName, mContact;
     private Button mAdd,mDone;
-    private ImageView mClose;
     private ContactPersonListener listener;
     private ContactedPersonAdapter adapter;
     private View mParent;
@@ -65,21 +65,20 @@ public class ContactPersonFragment extends AppBottomSheetDialogFragment implemen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView    = view.findViewById(R.id.recycler);
-        mClose          = view.findViewById(R.id.close_dialog);
+//        recyclerView    = view.findViewById(R.id.recycler);
+//        mClose          = view.findViewById(R.id.close_dialog);
         mName           = view.findViewById(R.id.person_name);
         mContact        = view.findViewById(R.id.person_contact);
         mAddress        = view.findViewById(R.id.person_address);
         mDone           = view.findViewById(R.id.btn_done);
         mAdd            = view.findViewById(R.id.btn_add_person);
 
-        mClose.setOnClickListener(this);
         mAdd.setOnClickListener(this);
         mDone.setOnClickListener(this);
 
         adapter = new ContactedPersonAdapter(this,list,true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerView.setAdapter(adapter);
 
 //        mAddress.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
@@ -150,7 +149,8 @@ public class ContactPersonFragment extends AppBottomSheetDialogFragment implemen
     private void closeFragment(){
         if(listener!=null)
             listener.onDialogDismiss(adapter.getList());
-        getActivity().onBackPressed();
+//        getActivity().onBackPressed();
+        dismiss();
     }
 
     private void addPerson(){
