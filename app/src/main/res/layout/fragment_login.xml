@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/colorWhite"
+    tools:context=".source.prelogin.fragment.LoginFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_regular">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_margin="20dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/customer_logo"/>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/login"
+                android:textColor="@color/themeTextDark"
+                android:textSize="50sp"
+                android:textStyle="normal" />
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="@dimen/margin_xlarge"
+                android:text="@string/login_desc"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User name"
+                android:textColorHint="@color/themeTextDark"
+                android:textColor="@color/themeTextPrimaryColor"
+                android:textSize="@dimen/font_20sp"
+                android:id="@+id/user_name"
+                android:singleLine="true"
+                android:gravity="start"
+                android:background="@drawable/login_input_drawable"
+                android:padding="@dimen/margin_small"
+                android:imeOptions="actionNext"/>
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textColorHint="@color/themeTextDark"
+                android:textColor="@color/themeTextPrimaryColor"
+                android:textSize="@dimen/font_20sp"
+                android:gravity="start"
+                android:inputType="textPassword"
+                android:id="@+id/password"
+                android:padding="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/login_input_drawable"
+                android:imeOptions="actionDone"/>
+            <com.policeapp.framework.Widgets.AppButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Log In"
+                android:background="@drawable/regular_button"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="@dimen/margin_large"
+                android:textAllCaps="false"
+                android:id="@+id/btn_login"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

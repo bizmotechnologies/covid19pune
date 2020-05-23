@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pandurang Baikar"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="@dimen/font_18sp"
+                    android:id="@+id/name"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textStyle="bold"/>
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9011095147"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="@dimen/font_14sp"
+                    android:id="@+id/number"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:padding="@dimen/margin_tiny"
+                    android:id="@+id/btn_edit"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_tiny"
+                    android:id="@+id/btn_delete"
+                    android:layout_marginLeft="@dimen/margin_xsmall"
+                    android:src="@drawable/ic_close_person"/>
+            </LinearLayout>
+        </LinearLayout>
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/address"
+            android:text="Manikbaug sinhgad roadr"
+            android:textSize="@dimen/font_14sp"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightTextColor"/>
+</LinearLayout>

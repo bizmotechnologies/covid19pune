@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".source.postlogin.features.logout.fragments.LogoutLandingFragment">
+
+    <com.policeapp.framework.Widgets.AppRegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headerHeight"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_medium"
+        android:text="Profile"
+        android:textStyle="bold"
+        android:textColor="@color/darkTextColor"
+        android:textSize="@dimen/font_20sp"/>
+
+</LinearLayout>

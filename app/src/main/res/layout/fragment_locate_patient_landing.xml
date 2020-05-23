@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#fafafa"
+    tools:context=".source.postlogin.features.locate_patient.fragments.LocatePatientLandingFragment">
+    <com.policeapp.framework.Widgets.AppRegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headerHeight"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_medium"
+        android:text="Enter Patient Details"
+        android:textStyle="normal"
+        android:textColor="@color/themeTextDark"
+        android:textSize="30sp"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/headerHeight"
+        android:clipToPadding="false">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:orientation="vertical">
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="Please enter the details below to record new patient"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"/>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="24sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="Personal Info"/>
+
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:text="Patient Name"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_input_drawable">
+                
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@color/themeTextPrimaryColor"
+                    android:src="@mipmap/patient_name_icon"/>
+
+                <com.policeapp.framework.Widgets.AppEditText
+                    android:layout_width="match_parent"
+                    android:background="@null"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/patient_name"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:singleLine="true"
+                    android:nextFocusForward="@id/txt_email_id"
+                    android:imeOptions="actionNext"
+                    android:layout_height="40dp"/>
+
+            </LinearLayout>
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Patient Email"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_email_icon"/>
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_marginStart="8dp"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                android:nextFocusForward="@id/txt_contact_number"
+                android:id="@+id/txt_email_id"
+                android:imeOptions="actionNext"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Patient Contact Number"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_contact_icon"/>
+
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_marginStart="8dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="10"
+                android:digits="0123456789"
+                android:nextFocusForward="@id/txt_address_line1"
+                android:id="@+id/txt_contact_number"
+                android:imeOptions="actionNext"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="24sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="Address Info"/>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Patient Address"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_address_icon"/>
+
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_marginStart="8dp"
+                android:singleLine="true"
+                android:inputType="textPostalAddress|textCapSentences"
+                android:nextFocusForward="@id/txt_address_line2"
+                android:id="@+id/txt_address_line1"
+                android:imeOptions="actionNext"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Address Line 2"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_address_icon"/>
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:inputType="textPostalAddress"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/txt_city"
+                android:id="@+id/txt_address_line2"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_medium">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <com.policeapp.framework.Widgets.AppRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/themeTextDark2"
+                        android:textSize="18sp"
+                        android:text="City"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/form_input_drawable">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:tint="@color/themeTextPrimaryColor"
+                            android:src="@mipmap/form_city_icon"/>
+                        <com.policeapp.framework.Widgets.AppEditText
+                            android:layout_width="match_parent"
+                            android:background="@null"
+                            android:layout_marginStart="4dp"
+                            android:singleLine="true"
+                            android:inputType="textCapWords"
+                            android:nextFocusForward="@id/txt_pincode"
+                            android:id="@+id/txt_city"
+                            android:imeOptions="actionNext"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/margin_xsmall"
+                    android:layout_weight="1">
+                    <com.policeapp.framework.Widgets.AppRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/themeTextDark2"
+                        android:textSize="18sp"
+                        android:text="Pincode"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/form_input_drawable">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:tint="@color/themeTextPrimaryColor"
+                            android:src="@mipmap/form_pincode_icon"/>
+                    <com.policeapp.framework.Widgets.AppEditText
+                        android:layout_width="match_parent"
+                        android:background="@null"
+                        android:layout_marginStart="4sp"
+                        android:singleLine="true"
+                        android:digits="0123456789"
+                        android:maxLength="6"
+                        android:inputType="number"
+                        android:nextFocusForward="@id/txt_address_line2"
+                        android:id="@+id/txt_pincode"
+                        android:imeOptions="actionDone"
+                        android:layout_height="40dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/txtPersonLocationContainer"
+                android:background="@drawable/dottet_location_drawable"
+                android:padding="@dimen/margin_xsmall"
+                android:layout_marginTop="@dimen/margin_medium">
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/themeTextDark"
+                    android:textSize="20sp"
+                    android:layout_marginStart="@dimen/margin_xsmall"
+                    android:textStyle="normal"
+                    android:text="Capture Patient Location Using Map"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <com.policeapp.framework.Widgets.AppRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Latitude"
+                            android:textColor="@color/themeTextDark2"
+                            android:textSize="14sp"/>
+                        <com.policeapp.framework.Widgets.AppRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:gravity="center"
+                            android:id="@+id/txt_latitude"
+                            android:textSize="@dimen/font_12sp"
+                            android:background="@drawable/input_box"
+                            android:layout_margin="@dimen/margin_xsmall"
+                            android:padding="@dimen/margin_xsmall"
+                            android:textColor="@color/darkTextColor"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                        <com.policeapp.framework.Widgets.AppRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude"
+                            android:textColor="@color/themeTextDark2"
+                            android:textSize="14sp"/>
+                        <com.policeapp.framework.Widgets.AppRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:gravity="center"
+                            android:id="@+id/txt_longitude"
+                            android:textSize="@dimen/font_12sp"
+                            android:background="@drawable/input_box"
+                            android:layout_margin="@dimen/margin_xsmall"
+                            android:padding="@dimen/margin_xsmall"
+                            android:textColor="@color/darkTextColor"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <com.policeapp.framework.Widgets.AppButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_height="@dimen/button_small"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="@dimen/margin_xsmall"
+                    android:id="@+id/btn_generate_location"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/regular_button"
+                    android:text="Get Location"/>
+            </LinearLayout>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Select Police Station"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_box"
+                android:layout_marginTop="@dimen/margin_tiny">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form_input_drawable">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@color/themeTextPrimaryColor"
+                    android:src="@mipmap/form_icon_police_station"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:id="@+id/txt_police_station"
+                    android:entries="@array/station"
+                    android:layout_height="40dp"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="24sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="Patient Health Details"/>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Patient Age"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_age_icon"/>
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:id="@+id/txt_patient_age"
+                android:layout_width="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@null"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/txt_health_issue"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/themeTextDark2"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Patient Health Issue"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_input_drawable">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/themeTextPrimaryColor"
+                android:src="@mipmap/form_health_icon"/>
+
+            <com.policeapp.framework.Widgets.AppEditText
+                android:id="@+id/txt_health_issue"
+                android:layout_width="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@null"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionDone"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="@dimen/margin_medium">
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/themeTextDark2"
+                    android:textSize="24sp"
+                    android:layout_weight="1"
+                    android:text="Contacted Persons"/>
+                <com.policeapp.framework.Widgets.AppButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_height="28dp"
+                    android:id="@+id/btn_add_contacted_person"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:background="@drawable/regular_button"
+                    android:text="Add"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycler"/>
+            <com.policeapp.framework.Widgets.AppButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_medium"
+                android:background="@drawable/regular_button"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:id="@+id/btn_save"
+                android:text="Save Person"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

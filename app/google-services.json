@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "966494696106",
+    "firebase_url": "https://covd-19-pune.firebaseio.com",
+    "project_id": "covd-19-pune",
+    "storage_bucket": "covd-19-pune.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966494696106:android:a7c76e49f1e2d7794116d3",
+        "android_client_info": {
+          "package_name": "com.pyramid.covidpune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966494696106-0nlb3nd1vdam28kmge5jn2sjhlu84bho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhvbctZKHsc46LHLQcdZJcR5fMXGfwZZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966494696106-0nlb3nd1vdam28kmge5jn2sjhlu84bho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
