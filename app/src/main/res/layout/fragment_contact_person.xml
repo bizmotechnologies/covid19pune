@@ -31,6 +31,7 @@
         android:padding="@dimen/margin_medium">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:theme="@style/AppTheme"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -41,16 +42,15 @@
                 android:singleLine="true"
                 android:textColorHint="@color/themeTextDark"
                 android:nextFocusForward="@+id/person_contact"
-                android:textSize="@dimen/font_14sp"
                 android:id="@+id/person_name"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:theme="@style/AppTheme"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/font_14sp"
                 android:hint="Mobile Number"
                 android:imeOptions="actionNext"
                 android:inputType="number"
@@ -63,12 +63,12 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:theme="@style/AppTheme"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Address"
-                android:textSize="@dimen/font_14sp"
                 android:textColorHint="@color/themeTextDark"
                 android:inputType="textPostalAddress|textCapSentences"
                 android:imeOptions="actionDone"
