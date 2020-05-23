@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_station"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_tiny"
+            />
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:layout_toRightOf="@id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#5E5A5A"
+            android:singleLine="false"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_14sp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/txt_cases_count"
+            android:id="@+id/txt_station_name"/>
+
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/font_12sp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/themetextDarkColor"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_tiny"
+            android:id="@+id/txt_cases_count"/>
+
+<!--        <view-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/themetextDarkColor"-->
+<!--            android:alpha="0.3"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginLeft="@dimen/margin_tiny"-->
+<!--            android:layout_marginRight="@dimen/margin_tiny"-->
+<!--            />-->
+    </RelativeLayout>
+</LinearLayout>

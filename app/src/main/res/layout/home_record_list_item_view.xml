@@ -43,7 +43,7 @@
         android:layout_marginRight="@dimen/margin_tiny"
         android:id="@+id/txt_cases_count"/>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/themetextDarkColor"

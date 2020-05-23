@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -39,6 +40,8 @@ import com.policeapp.source.postlogin.HomeActivity;
 import com.policeapp.source.postlogin.MapsActivity;
 import com.policeapp.source.postlogin.features.locate_patient.adapter.ContactedPersonAdapter;
 import com.policeapp.source.postlogin.features.locate_patient.bean.ContactedPersonBean;
+import com.policeapp.source.postlogin.features.locate_patient.bean.StationBean;
+import com.policeapp.source.postlogin.features.locate_patient.bean.StationResponseBean;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonApiInterface;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonListener;
 import com.policeapp.source.prelogin.interfaces.PreLoginServiceInterface;
@@ -65,6 +68,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     private String Latitude,Longitude;
     private LinearLayout mLocationContainer;
     private GoogleMap googleMap;
+    private ArrayList<StationBean> stationBeans;
     public LocatePatientLandingFragment() {
         // Required empty public constructor
     }
@@ -101,11 +105,12 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         mAddContactedPerson.setOnClickListener(this);
         mSavePerson.setOnClickListener(this);
         mGetLocation.setOnClickListener(this);
-
+        stationBeans = new ArrayList<>();
         contactPersonList = new ArrayList<>();
         adapter = new ContactedPersonAdapter(this,contactPersonList,false);
         mContactedPersonList.setLayoutManager(new LinearLayoutManager(getContext()));
         mContactedPersonList.setAdapter(adapter);
+        getAllStations();
 //        mLocationContainer.setVisibility(View.GONE);
 
     }
@@ -136,7 +141,21 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
 
     @Override
     public void onSuccess(Object responseBean) {
-        if(responseBean instanceof CommonResponse)
+        if(responseBean instanceof StationResponseBean){
+            ArrayList<String> stations = new ArrayList<>();
+            if (((StationResponseBean) responseBean).isStatus()){
+                stationBeans = ((StationResponseBean) responseBean).getData();
+                for (int i=0; i<stationBeans.size(); i++){
+                    stations.add(stationBeans.get(i).getStationName());
+                }
+                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                        (getContext(), android.R.layout.simple_spinner_item,
+                                stations); //selected item will look like a spinner set from XML
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout
+                        .simple_spinner_dropdown_item);
+                mPoliceStation.setAdapter(spinnerArrayAdapter);
+            }
+        }else if(responseBean instanceof CommonResponse)
         {
             if (((CommonResponse) responseBean).isStatus()){
                 Utils.showSnackBarNotificationGreen(((CommonResponse) responseBean).getMessage(),mPatientName);
@@ -172,6 +191,15 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     }
 
     private void actionSavePerson(){
+        String station = mPoliceStation.getSelectedItem().toString();
+        String stationId = "0";
+        for (int i=0 ; i<stationBeans.size(); i++){
+            if(station.equals(stationBeans.get(i).getStationName())){
+                stationId =stationBeans.get(i).getId();
+                break;
+            }
+        }
+
         if (Utils.isEmptyOrNull(mPatientName)){
             Utils.showSnackBarNotificationError("Patient name is required",mPatientName);
             return;
@@ -202,7 +230,6 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         String address1 = mPatientAddress2.getText().toString().trim();
         String latitude = mLatitude.getText().toString().trim();
         String longitude = mLongitude.getText().toString().trim();
-        String station = mPoliceStation.getSelectedItem().toString();
         String age = mPatientAge.getText().toString().trim();
         String health = mPatientIssue.getText().toString().trim();
         String email = mEmail.getText().toString().trim();
@@ -218,7 +245,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         Log.v("address1",address1);
         Log.v("latitude",latitude);
         Log.v("longitude",longitude);
-        Log.v("station",station);
+        Log.v("station",stationId);
         Log.v("age",age);
         Log.v("health",health);
         Log.v("email",email);
@@ -230,7 +257,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         AppNetworkManager networkManager = new AppNetworkManager(new GenericResponseHandler(this, getActivity()));
         RestAdapter adapter = networkManager.getBaseAdapter(getActivity());
         ContactPersonApiInterface service = adapter.create(ContactPersonApiInterface.class);
-        service.addPatient(name,address,email,city,pincode,station,latitude,longitude,age,health,contactPerson.toString(),contact,address1, networkManager);
+        service.addPatient(name,address,email,city,pincode,stationId,latitude,longitude,age,health,contactPerson.toString(),contact,address1, networkManager);
     }
 
     private void selectPoliceStation(){
@@ -260,5 +287,12 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         mLatitude.setText(Latitude);
         mLongitude.setText(Longitude);
 //        mLocationContainer.setVisibility(View.VISIBLE);
+    }
+
+    private void getAllStations(){
+        AppNetworkManager networkManager = new AppNetworkManager(new GenericResponseHandler(this, getActivity()));
+        RestAdapter adapter = networkManager.getBaseAdapter(getActivity());
+        ContactPersonApiInterface service = adapter.create(ContactPersonApiInterface.class);
+        service.getAllStations(networkManager);
     }
 }

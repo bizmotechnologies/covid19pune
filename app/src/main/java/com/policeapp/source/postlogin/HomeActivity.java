@@ -61,8 +61,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void loadDefaultFragment() {
-        highlightLowerMenu(TABS_NAMES.LOCATE_PATIENT);
-        makeFragmentTransactionForMasterFrag((MasterFragment) mNavigationMap.get(TABS_NAMES.LOCATE_PATIENT));
+        highlightLowerMenu(TABS_NAMES.HOME);
+        makeFragmentTransactionForMasterFrag((MasterFragment) mNavigationMap.get(TABS_NAMES.HOME));
         getSupportFragmentManager().addOnBackStackChangedListener(getListener());
     }
 
