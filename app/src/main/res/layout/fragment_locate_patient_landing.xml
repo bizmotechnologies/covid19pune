@@ -7,15 +7,18 @@
     android:orientation="vertical"
     android:background="#fafafa"
     tools:context=".source.postlogin.features.locate_patient.fragments.LocatePatientLandingFragment">
+
     <com.policeapp.framework.Widgets.AppRegularTextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/headerHeight"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/margin_medium"
         android:text="Enter Patient Details"
-        android:textStyle="normal"
-        android:textColor="@color/themeTextDark"
-        android:textSize="30sp"/>
+        android:textStyle="bold"
+        android:textColor="@color/themetextDarkColor"
+        android:textSize="25sp"/>
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,10 +41,11 @@
             <com.policeapp.framework.Widgets.AppRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/themeTextDark2"
-                android:textSize="24sp"
+                android:textColor="@color/themetextDarkColor"
+                android:textSize="@dimen/font_20sp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="@dimen/margin_large"
+                android:textStyle="bold"
                 android:text="Personal Info"/>
 
 
@@ -148,13 +152,22 @@
 
         </LinearLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:src="@drawable/dotted_line"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layerType="software"
+                />
+
 
             <com.policeapp.framework.Widgets.AppRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/themeTextDark2"
-                android:textSize="24sp"
+                android:textColor="@color/themetextDarkColor"
+                android:textSize="@dimen/font_20sp"
                 android:layout_marginBottom="10dp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/margin_large"
                 android:text="Address Info"/>
 
@@ -163,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/themeTextDark2"
                 android:textSize="18sp"
-                android:layout_marginTop="@dimen/margin_medium"
                 android:text="Patient Address"/>
 
 
@@ -324,7 +336,7 @@
                     android:textColor="@color/themeTextDark"
                     android:textSize="20sp"
                     android:layout_marginStart="@dimen/margin_xsmall"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:text="Capture Patient Location Using Map"/>
 
                 <LinearLayout
@@ -431,14 +443,23 @@
                 </LinearLayout>
             </RelativeLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:src="@drawable/dotted_line"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layerType="software"
+                />
+
 
             <com.policeapp.framework.Widgets.AppRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/themeTextDark2"
-                android:textSize="24sp"
+                android:textColor="@color/themetextDarkColor"
+                android:textSize="@dimen/font_20sp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="@dimen/margin_large"
+                android:textStyle="bold"
                 android:text="Patient Health Details"/>
 
             <com.policeapp.framework.Widgets.AppRegularTextView
@@ -446,7 +467,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/themeTextDark2"
                 android:textSize="18sp"
-                android:layout_marginTop="@dimen/margin_medium"
                 android:text="Patient Age"/>
 
         <LinearLayout
@@ -508,6 +528,14 @@
 
         </LinearLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:src="@drawable/dotted_line"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layerType="software"
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -517,9 +545,10 @@
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/themeTextDark2"
-                    android:textSize="24sp"
+                    android:textColor="@color/themetextDarkColor"
+                    android:textSize="@dimen/font_20sp"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:text="Contacted Persons"/>
                 <com.policeapp.framework.Widgets.AppButton
                     android:layout_width="wrap_content"
@@ -535,7 +564,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recycler"/>
+                android:id="@+id/recycler"
+                android:layout_marginTop="@dimen/margin_medium"
+                />
             <com.policeapp.framework.Widgets.AppButton
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_medium"
