@@ -13,6 +13,8 @@
     <color name="lightBackgroundColor">#EEF3FF</color>
 
     <color name="themeTextPrimaryColor">#B60551</color>
+    <color name="themetextDarkColor">#900540</color>
+    <color name="themetextlightColor">#8A900540</color>
     <color name="themeTextDark">#3a3a3a</color>
     <color name="themeTextDark2">#777777</color>
 </resources>

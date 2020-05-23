@@ -12,6 +12,14 @@
         android:layout_height="match_parent">
 
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/footer"
+            />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,9 +39,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="@string/login"
-                android:textColor="@color/themeTextDark"
-                android:textSize="50sp"
-                android:textStyle="normal" />
+                android:textColor="@color/themetextDarkColor"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <com.policeapp.framework.Widgets.AppRegularTextView
                 android:layout_width="wrap_content"
@@ -41,8 +49,8 @@
                 android:layout_gravity="start"
                 android:layout_marginBottom="@dimen/margin_xlarge"
                 android:text="@string/login_desc"
-                android:textColor="@color/themeTextDark2"
-                android:textSize="18sp"
+                android:textColor="@color/themetextlightColor"
+                android:textSize="15sp"
                 android:textStyle="normal" />
 
             <com.policeapp.framework.Widgets.AppEditText
