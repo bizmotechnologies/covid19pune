@@ -1,39 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="#efefef"
     android:orientation="vertical"
     tools:context=".source.postlogin.features.home.fragments.HomeLandingFragment">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/header"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
     <com.policeapp.framework.Widgets.AppRegularTextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headerHeight"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingLeft="@dimen/margin_medium"
-        android:text="Home"
+        android:paddingLeft="35dp"
+        android:text="Welcome"
         android:textStyle="bold"
-        android:textColor="@color/darkTextColor"
-        android:textSize="@dimen/font_20sp"/>
+        android:typeface="sans"
+        android:textColor="@color/colorWhite"
+        android:textSize="35sp"
+        />
     <com.policeapp.framework.Widgets.AppRegularTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/margin_medium"
         android:text="Please enter the details below to record new patient"
-        android:textColor="@color/lightTextColor"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/font_12sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:padding="@dimen/margin_medium">
+        android:layout_marginTop="140dp"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_medium"
+            android:background="@color/colorWhite"
+            android:layout_marginBottom="@dimen/margin_medium"
+            >
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,8 +69,8 @@
                     android:textSize="@dimen/font_12sp"
                     android:textColor="@color/colorWhite"
                     android:text="Stations in record"
-                    android:alpha="0.65"
-                    android:textStyle="bold"/>
+                    android:alpha="0.75"
+                    android:textStyle="normal"/>
 
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:id="@+id/stationCount"
@@ -59,7 +79,6 @@
                     android:textSize="25sp"
                     android:textColor="@color/colorWhite"
                     android:text="150"
-                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/margin_small"
                     android:textStyle="bold"/>
                 <com.policeapp.framework.Widgets.AppRegularTextView
@@ -68,7 +87,6 @@
                     android:textSize="@dimen/font_12sp"
                     android:textColor="@color/colorWhite"
                     android:text="Stations"
-                    android:layout_gravity="center_horizontal"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -76,32 +94,70 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_medium"
                 android:layout_weight="1"
-                android:layout_marginLeft="@dimen/margin_large"
-                android:background="@drawable/input_box"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:background="@color/themetextDarkColor"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="left">
+                <com.policeapp.framework.Widgets.AppRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Total cases on record"
+                    android:alpha="0.75"
+                    android:textStyle="normal"/>
+
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:id="@+id/totalCases"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/font_20sp"
-                    android:textColor="@color/darkTextColor"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:text="150"
                     android:textStyle="bold"/>
                 <com.policeapp.framework.Widgets.AppRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/font_18sp"
-                    android:textColor="@color/lightTextColor"
-                    android:text="Total Cases"
-                    android:layout_marginTop="@dimen/margin_xsmall"
+                    android:textSize="@dimen/font_12sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Cases"
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
-       <androidx.recyclerview.widget.RecyclerView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_marginTop="@dimen/margin_medium"
-           android:id="@+id/record_recycler"/>
+
     </LinearLayout>
-</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            >
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_20sp"
+                android:textColor="@color/themetextDarkColor"
+                android:text="Latest Statistics"
+                android:textStyle="bold"/>
+
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_12sp"
+                android:textColor="@color/darkTextColor"
+                android:text="List of the most affected zones as per the data available"
+                android:alpha="0.5"
+                android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:id="@+id/record_recycler"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
