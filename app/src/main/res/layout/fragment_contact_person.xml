@@ -1,104 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:elevation="2dp"
-
     tools:context=".source.postlogin.features.locate_patient.fragments.ContactPersonFragment">
 
-
-    <com.policeapp.framework.Widgets.AppRegularTextView
-        android:id="@+id/top"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter details of person contacted by patient"
-        android:textSize="@dimen/font_18sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorWhite"
-        android:padding="@dimen/margin_small"
-        android:background="@color/themetextDarkColor"
-        />
+        android:layout_height="match_parent">
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter details of person contacted by patient"
+            android:textSize="@dimen/font_18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:padding="@dimen/margin_small"
+            android:background="@color/themetextDarkColor"
+            />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/colorWhite"
-        android:id="@+id/input_view"
-        android:layout_below="@id/top"
-        android:padding="@dimen/margin_medium">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Person Name"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName|textCapWords"
-                android:singleLine="true"
-                android:textColorHint="@color/themeTextDark"
-                android:nextFocusForward="@+id/person_contact"
-                android:id="@+id/person_name"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:digits="0123456789"
-                android:textColorHint="@color/themeTextDark"
-                android:maxLength="10"
-                android:nextFocusForward="@+id/person_address"
-                android:singleLine="true"
-                android:id="@+id/person_contact"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                android:textColorHint="@color/themeTextDark"
-                android:inputType="textPostalAddress|textCapSentences"
-                android:imeOptions="actionDone"
-                android:id="@+id/person_address"/>
-        </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:orientation="horizontal">
-            <com.policeapp.framework.Widgets.AppButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/button_regular"
-                android:text="Close"
-                android:textAllCaps="false"
-                android:id="@+id/btn_done"
-                android:background="@drawable/disable_button_bg"
-                android:textColor="@color/colorWhite"/>
-            <com.policeapp.framework.Widgets.AppButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/button_regular"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:text="Add"
-                android:textAllCaps="false"
-                android:id="@+id/btn_add_person"
-                android:background="@drawable/regular_button"
-                android:textColor="@color/colorWhite"/>
+            android:orientation="vertical"
+            android:background="@color/colorWhite"
+            android:id="@+id/input_view"
+            android:layout_below="@id/top"
+            android:padding="@dimen/margin_medium">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Person Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapWords"
+                    android:singleLine="true"
+                    android:textColorHint="@color/themeTextDark"
+                    android:nextFocusForward="@+id/person_contact"
+                    android:id="@+id/person_name"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:textColorHint="@color/themeTextDark"
+                    android:maxLength="10"
+                    android:nextFocusForward="@+id/person_address"
+                    android:singleLine="true"
+                    android:id="@+id/person_contact"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:textColorHint="@color/themeTextDark"
+                    android:inputType="textPostalAddress|textCapSentences"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/person_address"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:orientation="horizontal">
+                <com.policeapp.framework.Widgets.AppButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/button_regular"
+                    android:text="Close"
+                    android:textAllCaps="false"
+                    android:id="@+id/btn_done"
+                    android:background="@drawable/disable_button_bg"
+                    android:textColor="@color/colorWhite"/>
+                <com.policeapp.framework.Widgets.AppButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/button_regular"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:text="Add"
+                    android:textAllCaps="false"
+                    android:id="@+id/btn_add_person"
+                    android:background="@drawable/regular_button"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

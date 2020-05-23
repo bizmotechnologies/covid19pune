@@ -281,6 +281,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     public void onDialogDismiss(ArrayList<ContactedPersonBean> list) {
         this.contactPersonList = list;
         adapter.setList(list);
+        ((HomeActivity) Objects.requireNonNull(getActivity())).showBottomMenu();
     }
 
     @Override

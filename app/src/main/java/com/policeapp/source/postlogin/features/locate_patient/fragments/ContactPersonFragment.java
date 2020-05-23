@@ -56,11 +56,6 @@ public class ContactPersonFragment extends BottomSheetDialogFragment implements 
         return mParent;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((HomeActivity) Objects.requireNonNull(getActivity())).hideBottomMenu();
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
