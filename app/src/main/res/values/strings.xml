@@ -4,14 +4,16 @@
 <!--    <string name="img_base_url">http://159.65.233.65/policeapp/%s</string>-->
     <string name="base_url">http://139.59.80.21/policeapp/api/Admin/</string>
     <string name="img_base_url">http://139.59.80.21/policeapp/policeapp/%s</string>
+    <string name="app_name">Tracker Pune</string>
+    <string name="base_url">http://139.59.80.21/policeapp/api/Admin/</string>
     <string name="lower_menu">HSH</string>
     <string name="my_activities">My Activities</string>
     <string name="my_draft">My Draft</string>
     <string name="no_network">No Network found</string>
-    <string name="oopsMessage">Opps something went to wrong</string>
+    <string name="oopsMessage">Opps something went wrong</string>
 
     <string name="login">Log In</string>
-    <string name="login_desc">Please log in to the Corona Monitoring System App by entering your email and password</string>
+    <string name="login_desc">Please log in to the Patient Monitoring System App by entering your email and password</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
