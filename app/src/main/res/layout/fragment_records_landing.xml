@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context="com.policeapp.source.postlogin.features.records.fragments.RecordsLandingFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_medium">
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_20sp"
+            android:textColor="@color/darkTextColor"
+            android:text="Latest Record"
+            android:textStyle="bold"/>
+
+        <com.policeapp.framework.Widgets.AppRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_12sp"
+            android:textColor="@color/darkTextColor"
+            android:text="List of the most affected zones as per the data available"
+            android:alpha="0.5"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/swipe_refresh"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_xlarge"
+            android:clipToPadding="false"
+            android:id="@+id/record_recycler"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,8 +1,5 @@
 package com.policeapp.source.postlogin.features.locate_patient.fragments;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,23 +30,17 @@ import com.policeapp.framework.network.Bean.CommonResponse;
 import com.policeapp.framework.network.Bean.ErrorBean;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
-import com.policeapp.framework.storage.Constants;
-import com.policeapp.framework.storage.DataCacheManager;
 import com.policeapp.source.postlogin.HomeActivity;
-import com.policeapp.source.postlogin.MapsActivity;
 import com.policeapp.source.postlogin.features.locate_patient.adapter.ContactedPersonAdapter;
 import com.policeapp.source.postlogin.features.locate_patient.bean.ContactedPersonBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationResponseBean;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonApiInterface;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonListener;
-import com.policeapp.source.prelogin.interfaces.PreLoginServiceInterface;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-import okhttp3.internal.Util;
-import okio.Utf8;
 import retrofit.RestAdapter;
 
 /**
@@ -133,7 +123,6 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
                 actionSavePerson();
                 break;
             case R.id.btn_generate_location:
-//                startActivity(new Intent(getActivity(), MapsActivity.class));
                 mMasterFragment.loadFragment(new LocationFragment(this),true);
                 break;
         }

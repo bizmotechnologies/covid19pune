@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">COVID-19 Pune</string>
-    <string name="base_url">http://159.65.233.65/policeapp/api/Admin/</string>
-    <string name="img_base_url">http://159.65.233.65/policeapp/%s</string>
+<!--    <string name="base_url">http://159.65.233.65/policeapp/api/Admin/</string>-->
+<!--    <string name="img_base_url">http://159.65.233.65/policeapp/%s</string>-->
+    <string name="base_url">http://139.59.80.21/policeapp/api/Admin/</string>
+    <string name="img_base_url">http://139.59.80.21/policeapp/policeapp/%s</string>
     <string name="lower_menu">HSH</string>
     <string name="my_activities">My Activities</string>
     <string name="my_draft">My Draft</string>

@@ -1,13 +1,11 @@
 package com.policeapp.source.postlogin;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -22,7 +20,7 @@ import com.policeapp.framework.Fragments.MasterFragment;
 import com.policeapp.framework.storage.DataCacheManager;
 import com.policeapp.source.postlogin.features.home.fragments.HomeMasterFragment;
 import com.policeapp.source.postlogin.features.locate_patient.fragments.LocatePatientMasterFragment;
-import com.policeapp.source.postlogin.features.logout.fragments.LogoutMasterFragment;
+import com.policeapp.source.postlogin.features.records.fragments.RecordsMasterFragment;
 import com.policeapp.source.prelogin.LoginActivity;
 
 import java.util.HashMap;
@@ -30,9 +28,9 @@ import java.util.HashMap;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mLowerMenuContainer;
     private HashMap<Object, Object> mNavigationMap;
-    private Button mLocatePatient,mLogout;
+    private Button mLocatePatient,mRecord;
     private ImageButton mHome;
-    private enum TABS_NAMES{LOCATE_PATIENT,HOME,LOGOUT}
+    private enum TABS_NAMES{LOCATE_PATIENT,HOME,RECORD}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +42,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
 
     private void initUiComponents() {
-//        makeFragmentTransaction(new LocatePatientMasterFragment(), true);
         mLowerMenuContainer = findViewById(R.id.lower_menu_container);
         prepareNavigationMap();
         loadLowerStaticMenu();
@@ -54,10 +51,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void loadLowerStaticMenu() {
         mLocatePatient  = findViewById(R.id.locate_patient);
         mHome           = findViewById(R.id.home_tab);
-        mLogout         = findViewById(R.id.logout);
+        mRecord         = findViewById(R.id.record_tab);
         mLocatePatient.setOnClickListener(this);
         mHome.setOnClickListener(this);
-        mLogout.setOnClickListener(this);
+        mRecord.setOnClickListener(this);
     }
 
     private void loadDefaultFragment() {
@@ -72,7 +69,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             mNavigationMap = new HashMap<>();
             mNavigationMap.put(TABS_NAMES.LOCATE_PATIENT, new LocatePatientMasterFragment());
             mNavigationMap.put(TABS_NAMES.HOME, new HomeMasterFragment());
-            mNavigationMap.put(TABS_NAMES.LOGOUT, new LogoutMasterFragment());
+            mNavigationMap.put(TABS_NAMES.RECORD, new RecordsMasterFragment());
         }
         return mNavigationMap;
     }
@@ -85,18 +82,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //reset all the backgrounds
         mLocatePatient.setSelected(false);
         mHome.setSelected(false);
-        mLogout.setSelected(false);
+        mRecord.setSelected(false);
 
         switch (name)
         {
             case LOCATE_PATIENT:
                 mLocatePatient.setSelected(true);
                 break;
-            case HOME:
-                mHome.setSelected(true);
+            case RECORD:
+                mRecord.setSelected(true);
                 break;
             default:
-                mLogout.setSelected(true);
+                mHome.setSelected(true);
                 break;
         }
     }
@@ -115,8 +112,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                             highlightLowerMenu(TABS_NAMES.LOCATE_PATIENT);
                         }else if(fragment instanceof HomeMasterFragment){
                             highlightLowerMenu(TABS_NAMES.HOME);
-                        }else if(fragment instanceof LogoutMasterFragment){
-                            highlightLowerMenu(TABS_NAMES.LOGOUT);
+                        }else if(fragment instanceof RecordsMasterFragment){
+                            highlightLowerMenu(TABS_NAMES.RECORD);
                         }
                     }
                 }
@@ -125,13 +122,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         return result;
     }
 
-    public void setTitle(String title) {
-        super.setAppTitle(title);
-    }
-
     public void setLeftChevron() {
         super.setLeftChevron();
     }
+
     public void setLeftChevron(Runnable runnable) {
         super.setLeftChevron(runnable);
     }
@@ -145,41 +139,15 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         super.setLeftMenu(leftMenu, runnable);
     }
 
-
-    public void hideRightMenu() {
-//        super.setRightMenu(null, null);
-    }
-
-
     @Override
     protected void onResume() {
         super.onResume();
 
     }
 
-    public void hideKeyboard()
-    {
-        try {
-            InputMethodManager input = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
-            input.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public MasterFragment getCurrentFragment()
     {
         return (MasterFragment) super.getCurrentFragment();
-    }
-
-    /**
-     * This method will recreate the lower menu and load it again .This is to
-     * support the language translation when the language is changed from profile.
-     */
-    public void reloadLowerMenu()
-    {
-//        loadLowerMenu();
-//        highlightLowerMenu("Family");
     }
 
     @Override
@@ -211,13 +179,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 highlightLowerMenu(TABS_NAMES.HOME);
                 navigateToHome();
                 break;
-            case R.id.logout:
-                DataCacheManager.getInstance(this).clearAllData();
-                Intent postLoginIntent = new Intent(HomeActivity.this, LoginActivity.class);
-                startActivity(postLoginIntent);
-                finish();
-//                highlightLowerMenu(TABS_NAMES.LOGOUT);
-//                navigateToLogout();
+            case R.id.record_tab:
+//                DataCacheManager.getInstance(this).clearAllData();
+//                Intent postLoginIntent = new Intent(HomeActivity.this, LoginActivity.class);
+//                startActivity(postLoginIntent);
+//                finish();
+                highlightLowerMenu(TABS_NAMES.RECORD);
+                navigateToRecord();
                 break;
         }
     }
@@ -230,8 +198,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         makeFragmentTransactionForMasterFrag((Fragment) mNavigationMap.get(TABS_NAMES.HOME));
     }
 
-    public void navigateToLogout() {
-        makeFragmentTransactionForMasterFrag((Fragment) mNavigationMap.get(TABS_NAMES.LOGOUT));
+    public void navigateToRecord() {
+        makeFragmentTransactionForMasterFrag((Fragment) mNavigationMap.get(TABS_NAMES.RECORD));
     }
 
 

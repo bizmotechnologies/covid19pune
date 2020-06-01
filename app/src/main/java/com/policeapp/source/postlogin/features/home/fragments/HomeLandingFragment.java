@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.model.Dash;
 import com.policeapp.R;
+import com.policeapp.framework.Fragments.TouchSupressListner;
 import com.policeapp.framework.network.AppNetworkManager;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
@@ -38,6 +39,7 @@ public class HomeLandingFragment extends Fragment implements NetworkResponseHand
     private StationCasesAdapter stationCasesAdapter;
     private TextView stationCount,totalCases;
     private RecyclerView mRecordListView;
+    private View mParentView;
     public HomeLandingFragment() {
         // Required empty public constructor
     }
@@ -47,7 +49,9 @@ public class HomeLandingFragment extends Fragment implements NetworkResponseHand
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_landing, container, false);
+        mParentView = inflater.inflate(R.layout.fragment_home_landing, container, false);
+        mParentView.setOnTouchListener(new TouchSupressListner());
+        return mParentView;
     }
 
     @Override
