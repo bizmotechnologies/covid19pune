@@ -10,13 +10,30 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/margin_medium">
-        <com.policeapp.framework.Widgets.AppRegularTextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_20sp"
-            android:textColor="@color/darkTextColor"
-            android:text="Latest Record"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_20sp"
+                android:textColor="@color/darkTextColor"
+                android:text="Latest Record"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+            <com.policeapp.framework.Widgets.AppButton
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:layout_height="@dimen/button_small"
+                android:textAllCaps="false"
+                android:layout_marginTop="@dimen/margin_xsmall"
+                android:id="@+id/btn_logout"
+                android:textSize="@dimen/font_12sp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/regular_button"
+                android:text="Logout"/>
+        </LinearLayout>
 
         <com.policeapp.framework.Widgets.AppRegularTextView
             android:layout_width="wrap_content"

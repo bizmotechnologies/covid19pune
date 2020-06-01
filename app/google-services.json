@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "966494696106",
-    "firebase_url": "https://covd-19-pune.firebaseio.com",
-    "project_id": "covd-19-pune",
-    "storage_bucket": "covd-19-pune.appspot.com"
+    "project_number": "960663485800",
+    "firebase_url": "https://tracker-pune.firebaseio.com",
+    "project_id": "tracker-pune",
+    "storage_bucket": "tracker-pune.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:966494696106:android:a7c76e49f1e2d7794116d3",
+        "mobilesdk_app_id": "1:960663485800:android:9a569f393f2327c0fa6add",
         "android_client_info": {
-          "package_name": "com.pyramid.covidpune"
+          "package_name": "com.pyramid.punetracker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "966494696106-0nlb3nd1vdam28kmge5jn2sjhlu84bho.apps.googleusercontent.com",
+          "client_id": "960663485800-9qht7ta16h2ei8phe11ndrj05innrc12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pyramid.punetracker",
+            "certificate_hash": "5a5280223367c2e4c6beac10a0192272e18934a4"
+          }
+        },
+        {
+          "client_id": "960663485800-il57oqfcpb5ka8rtjfa4ug4u36gun44o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pyramid.punetracker",
+            "certificate_hash": "67166377a9e4364045c5bef43df577f8b5eb8182"
+          }
+        },
+        {
+          "client_id": "960663485800-bnoee74dqkt4lmpt6isi6mk3p800e14r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDhvbctZKHsc46LHLQcdZJcR5fMXGfwZZg"
+          "current_key": "AIzaSyAmDc7ZGxfygGZd-TzQ2coYJBUr1EOp5Yw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "966494696106-0nlb3nd1vdam28kmge5jn2sjhlu84bho.apps.googleusercontent.com",
+              "client_id": "960663485800-bnoee74dqkt4lmpt6isi6mk3p800e14r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

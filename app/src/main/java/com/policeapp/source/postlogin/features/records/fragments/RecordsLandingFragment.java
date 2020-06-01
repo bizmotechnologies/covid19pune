@@ -1,5 +1,6 @@
 package com.policeapp.source.postlogin.features.records.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,11 +19,13 @@ import com.policeapp.framework.Fragments.TouchSupressListner;
 import com.policeapp.framework.network.AppNetworkManager;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
+import com.policeapp.framework.storage.DataCacheManager;
 import com.policeapp.source.postlogin.features.home.interfaces.HomeNetworkAPIInterface;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordResponseBean;
 import com.policeapp.source.postlogin.features.records.adapter.RecordsAdapter;
 import com.policeapp.source.postlogin.features.records.interfaces.RecordInterface;
+import com.policeapp.source.prelogin.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -55,6 +58,16 @@ public class RecordsLandingFragment extends Fragment implements NetworkResponseH
         recordsAdapter = new RecordsAdapter(new ArrayList<StationRecordBean>(),this);
         mRecordListView.setAdapter(recordsAdapter);
         refreshLayout = view.findViewById(R.id.swipe_refresh);
+
+        view.findViewById(R.id.btn_logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataCacheManager.getInstance(getContext()).clearAllData();
+                Intent postLoginIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(postLoginIntent);
+                getActivity().finish();
+            }
+        });
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
