@@ -20,14 +20,17 @@ import com.policeapp.framework.network.AppNetworkManager;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
 import com.policeapp.framework.storage.DataCacheManager;
+import com.policeapp.source.postlogin.HomeActivity;
 import com.policeapp.source.postlogin.features.home.interfaces.HomeNetworkAPIInterface;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordResponseBean;
+import com.policeapp.source.postlogin.features.locate_patient.fragments.LocatePatientMasterFragment;
 import com.policeapp.source.postlogin.features.records.adapter.RecordsAdapter;
 import com.policeapp.source.postlogin.features.records.interfaces.RecordInterface;
 import com.policeapp.source.prelogin.LoginActivity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import retrofit.RestAdapter;
 
@@ -36,6 +39,7 @@ public class RecordsLandingFragment extends Fragment implements NetworkResponseH
     private View mParentView;
     private RecordsAdapter recordsAdapter;
     private SwipeRefreshLayout refreshLayout;
+    private RecordsMasterFragment mMasterFragment;
     public RecordsLandingFragment() {
         // Required empty public constructor
     }
@@ -48,6 +52,13 @@ public class RecordsLandingFragment extends Fragment implements NetworkResponseH
         mParentView = inflater.inflate(R.layout.fragment_records_landing, container, false);
         mParentView.setOnTouchListener(new TouchSupressListner());
         return mParentView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((HomeActivity) Objects.requireNonNull(getActivity())).showBottomMenu();
+        mMasterFragment = (RecordsMasterFragment)( getActivity().getSupportFragmentManager().findFragmentByTag(RecordsMasterFragment.class.getSimpleName()));
     }
 
     @Override
@@ -102,6 +113,6 @@ public class RecordsLandingFragment extends Fragment implements NetworkResponseH
 
     @Override
     public void onItemClick(StationRecordBean bean) {
-
+        mMasterFragment.loadFragment(new PatientDetailsFragment(bean),true);
     }
 }

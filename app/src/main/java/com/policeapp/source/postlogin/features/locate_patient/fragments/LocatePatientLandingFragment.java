@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.policeapp.R;
+import com.policeapp.framework.Fragments.TouchSupressListner;
 import com.policeapp.framework.Utils.Utils;
 import com.policeapp.framework.network.AppNetworkManager;
 import com.policeapp.framework.network.Bean.CommonResponse;
@@ -59,6 +60,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     private LinearLayout mLocationContainer;
     private GoogleMap googleMap;
     private ArrayList<StationBean> stationBeans;
+    private View mParentView;
     public LocatePatientLandingFragment() {
         // Required empty public constructor
     }
@@ -68,7 +70,9 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_locate_patient_landing, container, false);
+        mParentView = inflater.inflate(R.layout.fragment_locate_patient_landing, container, false);
+        mParentView.setOnTouchListener(new TouchSupressListner());
+        return mParentView;
     }
 
     @Override

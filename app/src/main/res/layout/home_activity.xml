@@ -39,7 +39,7 @@
             android:padding="4dp"
             android:scaleType="centerInside"
             android:drawableTop="@drawable/ic_menu"
-            android:text="Logout"
+            android:text="Records"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/font_10sp"
             android:textAllCaps="false"

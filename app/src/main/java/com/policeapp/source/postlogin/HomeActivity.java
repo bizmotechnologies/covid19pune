@@ -180,12 +180,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 navigateToHome();
                 break;
             case R.id.record_tab:
-                DataCacheManager.getInstance(this).clearAllData();
-                Intent postLoginIntent = new Intent(HomeActivity.this, LoginActivity.class);
-                startActivity(postLoginIntent);
-                finish();
-//                highlightLowerMenu(TABS_NAMES.RECORD);
-//                navigateToRecord();
+//                DataCacheManager.getInstance(this).clearAllData();
+//                Intent postLoginIntent = new Intent(HomeActivity.this, LoginActivity.class);
+//                startActivity(postLoginIntent);
+//                finish();
+                highlightLowerMenu(TABS_NAMES.RECORD);
+                navigateToRecord();
                 break;
         }
     }

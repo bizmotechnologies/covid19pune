@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
-    android:elevation="2dp"
     tools:context=".source.postlogin.features.locate_patient.fragments.ContactPersonFragment">
 
     <RelativeLayout
@@ -19,7 +17,6 @@
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:padding="@dimen/margin_small"
-            android:background="@color/themetextDarkColor"
             />
 
         <LinearLayout
