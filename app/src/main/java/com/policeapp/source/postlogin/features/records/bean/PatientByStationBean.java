@@ -16,6 +16,7 @@ public class PatientByStationBean implements Serializable {
     private String patient_age;
     private String health_issue;
     private String status;
+    private String contact_number;
 
     public String getStation_id() {
         return station_id;
@@ -67,5 +68,9 @@ public class PatientByStationBean implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getContact_number() {
+        return contact_number;
     }
 }

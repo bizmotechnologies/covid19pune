@@ -9,6 +9,7 @@ public class ContactedPersonBean implements Serializable {
     private String address;
     private String emailId;
     private String status;
+    private String contact_number;
 
     public String getPatient_id() {
         return patient_id;
@@ -32,5 +33,9 @@ public class ContactedPersonBean implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getContact_number() {
+        return contact_number;
     }
 }

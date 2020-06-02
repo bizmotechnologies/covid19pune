@@ -462,40 +462,85 @@
                 android:textStyle="bold"
                 android:text="Patient Health Details"/>
 
-            <com.policeapp.framework.Widgets.AppRegularTextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/themeTextDark2"
-                android:textSize="18sp"
-                android:text="Patient Age"/>
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <com.policeapp.framework.Widgets.AppRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/themeTextDark2"
+                        android:textSize="18sp"
+                        android:text="Patient Age"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/form_input_drawable">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/form_input_drawable">
 
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:tint="@color/themeTextPrimaryColor"
-                android:src="@mipmap/form_age_icon"/>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:tint="@color/themeTextPrimaryColor"
+                            android:src="@mipmap/form_age_icon"/>
 
-            <com.policeapp.framework.Widgets.AppEditText
-                android:id="@+id/txt_patient_age"
-                android:layout_width="match_parent"
-                android:layout_marginStart="8dp"
-                android:background="@null"
-                android:inputType="number"
-                android:digits="0123456789"
-                android:imeOptions="actionNext"
-                android:nextFocusForward="@id/txt_health_issue"
-                android:singleLine="true"
-                android:layout_marginTop="@dimen/margin_tiny"
-                android:layout_height="40dp" />
+                        <com.policeapp.framework.Widgets.AppEditText
+                            android:id="@+id/txt_patient_age"
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:background="@null"
+                            android:inputType="number"
+                            android:digits="0123456789"
+                            android:imeOptions="actionNext"
+                            android:nextFocusForward="@id/txt_health_issue"
+                            android:singleLine="true"
+                            android:layout_marginTop="@dimen/margin_tiny"
+                            android:layout_height="40dp" />
 
-        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_xsmall"
+                    android:orientation="vertical">
+                    <com.policeapp.framework.Widgets.AppRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/themeTextDark2"
+                        android:textSize="18sp"
+                        android:text="Gender"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/form_input_drawable">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:tint="@color/themeTextPrimaryColor"
+                            android:src="@drawable/gender"/>
+
+                       <Spinner
+                           android:layout_width="match_parent"
+                           android:layout_height="44dp"
+                           android:id="@+id/gender"
+                           android:entries="@array/gender"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
             <com.policeapp.framework.Widgets.AppRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

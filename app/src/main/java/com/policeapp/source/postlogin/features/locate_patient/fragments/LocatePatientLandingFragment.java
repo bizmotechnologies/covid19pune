@@ -61,6 +61,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     private GoogleMap googleMap;
     private ArrayList<StationBean> stationBeans;
     private View mParentView;
+    private Spinner gender;
     public LocatePatientLandingFragment() {
         // Required empty public constructor
     }
@@ -95,6 +96,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         mContactNumber          = view.findViewById(R.id.txt_contact_number);
         mCity                   = view.findViewById(R.id.txt_city);
         mPincode                = view.findViewById(R.id.txt_pincode);
+        gender                  = view.findViewById(R.id.gender);
 
         mAddContactedPerson.setOnClickListener(this);
         mSavePerson.setOnClickListener(this);
@@ -187,6 +189,8 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     }
 
     private void actionSavePerson(){
+        String gen = gender.getSelectedItemPosition() == 0?"M":gender.getSelectedItemPosition() == 1?"F":"O";
+
         String station = mPoliceStation.getSelectedItem().toString();
         String stationId = "0";
         for (int i=0 ; i<stationBeans.size(); i++){
@@ -249,11 +253,12 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         Log.v("city",city);
         Log.v("pincode",pincode);
         Log.v("contactPerson",contactPerson.toString());
+        Log.v("gender",gen);
 
         AppNetworkManager networkManager = new AppNetworkManager(new GenericResponseHandler(this, getActivity()));
         RestAdapter adapter = networkManager.getBaseAdapter(getActivity());
         ContactPersonApiInterface service = adapter.create(ContactPersonApiInterface.class);
-        service.addPatient(name,address,email,city,pincode,stationId,latitude,longitude,age,health,contactPerson.toString(),contact,address1, networkManager);
+        service.addPatient(name,address,email,city,pincode,stationId,latitude,longitude,age,health,contactPerson.toString(),contact,address1,gen, networkManager);
     }
 
     private void selectPoliceStation(){

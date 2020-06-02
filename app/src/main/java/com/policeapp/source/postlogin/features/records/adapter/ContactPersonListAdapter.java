@@ -31,8 +31,16 @@ public class ContactPersonListAdapter extends RecyclerView.Adapter<ContactPerson
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.mName.setText(list.get(position).getPatientName());
-        holder.mContactNo.setText(list.get(position).getEmailId());
         holder.mAddress.setText(list.get(position).getAddress());
+        if (list.get(position).getContact_number()==null || list.get(position).getContact_number().isEmpty() || list.get(position).getContact_number().equals("0"))
+        {
+            holder.mContactNo.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.mContactNo.setText(list.get(position).getContact_number());
+            holder.mContactNo.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

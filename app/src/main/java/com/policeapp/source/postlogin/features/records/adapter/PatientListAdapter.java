@@ -41,8 +41,16 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.mParent.setTag(position);
         holder.mName.setText(list.get(position).getPatientName());
-        holder.mContactNo.setText(list.get(position).getStationName());
         holder.mAddress.setText(list.get(position).getAddress() +", "+list.get(position).getCity()+", "+list.get(position).getPincode());
+        if (list.get(position).getContact_number()==null || list.get(position).getContact_number().isEmpty() || list.get(position).getContact_number().equals("0"))
+        {
+            holder.mContactNo.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.mContactNo.setText(list.get(position).getContact_number());
+            holder.mContactNo.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
