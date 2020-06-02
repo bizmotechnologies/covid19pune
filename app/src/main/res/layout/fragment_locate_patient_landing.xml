@@ -8,16 +8,33 @@
     android:background="#fafafa"
     tools:context=".source.postlogin.features.locate_patient.fragments.LocatePatientLandingFragment">
 
-    <com.policeapp.framework.Widgets.AppRegularTextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/headerHeight"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/margin_medium"
-        android:text="Enter Patient Details"
-        android:textStyle="bold"
-        android:textColor="@color/themetextDarkColor"
-        android:textSize="25sp"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center_vertical"
 
+       android:orientation="horizontal">
+       <com.policeapp.framework.Widgets.AppRegularTextView
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/headerHeight"
+           android:gravity="center_vertical"
+           android:layout_weight="1"
+           android:paddingLeft="@dimen/margin_medium"
+           android:text="Enter Patient Details"
+           android:textStyle="bold"
+           android:textColor="@color/themetextDarkColor"
+           android:textSize="25sp"/>
+       <com.policeapp.framework.Widgets.AppButton
+           android:layout_width="wrap_content"
+           android:layout_height="@dimen/button_small"
+           android:textAllCaps="false"
+           android:id="@+id/btn_logout"
+           android:textSize="@dimen/font_12sp"
+           android:textColor="@color/colorWhite"
+           android:layout_marginRight="@dimen/margin_medium"
+           android:background="@drawable/regular_button"
+           android:text="Logout"/>
+   </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

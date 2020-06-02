@@ -1,5 +1,6 @@
 package com.policeapp.source.postlogin.features.home.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.policeapp.framework.Fragments.TouchSupressListner;
 import com.policeapp.framework.network.AppNetworkManager;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
+import com.policeapp.framework.storage.DataCacheManager;
 import com.policeapp.source.postlogin.HomeActivity;
 import com.policeapp.source.postlogin.features.home.StationCasesAdapter;
 import com.policeapp.source.postlogin.features.home.interfaces.HomeNetworkAPIInterface;
@@ -26,6 +28,7 @@ import com.policeapp.source.postlogin.features.locate_patient.bean.DashboardBean
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationRecordResponseBean;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonApiInterface;
+import com.policeapp.source.prelogin.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -66,6 +69,15 @@ public class HomeLandingFragment extends Fragment implements NetworkResponseHand
         stationCount.setText("-");
         totalCases.setText("-");
 
+        view.findViewById(R.id.btn_logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataCacheManager.getInstance(getContext()).clearAllData();
+                Intent postLoginIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(postLoginIntent);
+                getActivity().finish();
+            }
+        });
     }
 
     @Override

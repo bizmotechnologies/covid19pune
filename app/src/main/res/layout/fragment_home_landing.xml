@@ -20,17 +20,35 @@
         android:orientation="vertical"
 
         >
-    <com.policeapp.framework.Widgets.AppRegularTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingLeft="35dp"
-        android:text="Welcome"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:textColor="@color/colorWhite"
-        android:textSize="35sp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:orientation="horizontal">
+            <com.policeapp.framework.Widgets.AppRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:text="Welcome"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:textColor="@color/colorWhite"
+                android:textSize="35sp"
+                />
+            <com.policeapp.framework.Widgets.AppButton
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_small"
+                android:textAllCaps="false"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:id="@+id/btn_logout"
+                android:textSize="@dimen/font_12sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/white_rounded_button"
+                android:text="Logout"/>
+        </LinearLayout>
     <com.policeapp.framework.Widgets.AppRegularTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

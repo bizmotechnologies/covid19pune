@@ -1,9 +1,17 @@
 package com.policeapp.source.postlogin.features.locate_patient.fragments;
 
+import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +39,7 @@ import com.policeapp.framework.network.Bean.CommonResponse;
 import com.policeapp.framework.network.Bean.ErrorBean;
 import com.policeapp.framework.network.GenericResponseHandler;
 import com.policeapp.framework.network.Interface.NetworkResponseHandler;
+import com.policeapp.framework.storage.DataCacheManager;
 import com.policeapp.source.postlogin.HomeActivity;
 import com.policeapp.source.postlogin.features.locate_patient.adapter.ContactedPersonAdapter;
 import com.policeapp.source.postlogin.features.locate_patient.bean.ContactedPersonBean;
@@ -38,6 +47,7 @@ import com.policeapp.source.postlogin.features.locate_patient.bean.StationBean;
 import com.policeapp.source.postlogin.features.locate_patient.bean.StationResponseBean;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonApiInterface;
 import com.policeapp.source.postlogin.features.locate_patient.interfaces.ContactPersonListener;
+import com.policeapp.source.prelogin.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -62,6 +72,7 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
     private ArrayList<StationBean> stationBeans;
     private View mParentView;
     private Spinner gender;
+    private final int LOCATION_PERMISSION = 1002;
     public LocatePatientLandingFragment() {
         // Required empty public constructor
     }
@@ -109,6 +120,15 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
         getAllStations();
 //        mLocationContainer.setVisibility(View.GONE);
 
+        view.findViewById(R.id.btn_logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataCacheManager.getInstance(getContext()).clearAllData();
+                Intent postLoginIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(postLoginIntent);
+                getActivity().finish();
+            }
+        });
     }
 
     @Override
@@ -129,8 +149,47 @@ public class LocatePatientLandingFragment extends Fragment  implements View.OnCl
                 actionSavePerson();
                 break;
             case R.id.btn_generate_location:
-                mMasterFragment.loadFragment(new LocationFragment(this),true);
+                requestPermissions();
                 break;
+        }
+    }
+
+    private void requestPermissions(){
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.Theme_AppCompat_Dialog_Alert).create(); //Read Update
+            alertDialog.setTitle("Permission needed");
+            alertDialog.setMessage("This permission is needed for tracking patient location/area. Without this permission you can't track patient area");
+            alertDialog.setButton(Dialog.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    requestPermissions(new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION);
+                }
+            });
+            alertDialog.setButton(Dialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alertDialog.show();
+
+        }else {
+            mMasterFragment.loadFragment(new LocationFragment(this),true);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION) {
+            if ((grantResults.length > 0) && grantResults[0] == PackageManager.PERMISSION_GRANTED &&  grantResults[1] == PackageManager.PERMISSION_GRANTED ) {
+                mMasterFragment.loadFragment(new LocationFragment(this),true);
+            }else {
+                Utils.showSnackBarNotificationError("Permission denied. To grant permission go to app settings and enable location permission",mPatientName);
+            }
         }
     }
 

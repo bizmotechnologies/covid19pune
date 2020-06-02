@@ -150,11 +150,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         return (MasterFragment) super.getCurrentFragment();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-    }
 
     public void hideBottomMenu() {
         mLowerMenuContainer.setVisibility(View.GONE);
