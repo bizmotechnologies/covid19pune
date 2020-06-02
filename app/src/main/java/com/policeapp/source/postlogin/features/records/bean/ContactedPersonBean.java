@@ -3,39 +3,19 @@ package com.policeapp.source.postlogin.features.records.bean;
 import java.io.Serializable;
 
 public class ContactedPersonBean implements Serializable {
-    private String patient_id;
-    private String police_station;
-    private String patientName;
+    private String name;
+    private String number;
     private String address;
-    private String emailId;
-    private String status;
-    private String contact_number;
 
-    public String getPatient_id() {
-        return patient_id;
+    public String getName() {
+        return name;
     }
 
-    public String getPolice_station() {
-        return police_station;
-    }
-
-    public String getPatientName() {
-        return patientName;
+    public String getNumber() {
+        return number;
     }
 
     public String getAddress() {
         return address;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getContact_number() {
-        return contact_number;
     }
 }

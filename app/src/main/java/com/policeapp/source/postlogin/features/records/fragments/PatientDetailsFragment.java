@@ -103,9 +103,12 @@ public class PatientDetailsFragment extends Fragment implements NetworkResponseH
                 if (((PatientsContactedPersonsResponse)responseBean).getData().size()>0){
                     ContactedPersonDialog dialog = new ContactedPersonDialog(((PatientsContactedPersonsResponse)responseBean).getData(),contactPersonName);
                     dialog.show(getFragmentManager(),dialog.getTag());
+                }else {
+                    Utils.showSnackBarNotificationError("No contacted person found",mParentView);
+
                 }
             }else{
-                Utils.showSnackBarNotificationError(((PatientsContactedPersonsResponse)responseBean).getMessage(),mParentView);
+                Utils.showSnackBarNotificationError("No contacted person found",mParentView);
             }
         }
     }
